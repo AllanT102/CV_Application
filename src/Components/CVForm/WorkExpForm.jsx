@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import uniqid from "uniqid";
+import '../styles/section.css'
 
 class WorkExpForm extends Component {
   constructor() {
@@ -22,6 +23,7 @@ class WorkExpForm extends Component {
     this.updateSd = this.updateSd.bind(this);
     this.updateEd = this.updateEd.bind(this);
     this.updateDesc = this.updateDesc.bind(this);
+    this.deleteExp = this.deleteExp.bind(this);
   }
 
   createNewExperience(exp) {
@@ -36,7 +38,6 @@ class WorkExpForm extends Component {
         id: uniqid(),
       },
     });
-    console.log(this.state.exps)
   }
 
   updateCompany(exp, event) {
@@ -48,7 +49,6 @@ class WorkExpForm extends Component {
         return curr;
       })
     })
-    console.log(this.state.exps)
   }
 
   updatePosition(exp, event) {
@@ -87,14 +87,21 @@ class WorkExpForm extends Component {
     })
   }
 
+  deleteExp(exp) {
+    this.setState({
+        exps: this.state.exps.filter(curr => curr.id !== exp.id),
+      })
+  }
+
   renderNewExperience(exp) {
     return (
-      <div key={exp.id}>
+      <div key={exp.id} className="section sec-form">
         <input type="text" defaultValue={exp.company} onChange={(event) => this.updateCompany(exp, event)}></input>
         <input type="text" defaultValue={exp.position} onChange={(event) => this.updatePosition(exp, event)}></input>
         <input type="text" defaultValue={exp.sd} onChange={(event) => this.updateSd(exp, event)}></input>
         <input type="text" defaultValue={exp.ed} onChange={(event) => this.updateEd(exp, event)}></input>
         <input type="text" defaultValue={exp.desc} onChange={(event) => this.updateDesc(exp, event)}></input>
+        <button type="submit" onClick={(event) => this.deleteExp(exp)}> Delete </button>
       </div>
     );
   }
@@ -103,7 +110,7 @@ class WorkExpForm extends Component {
     return (
       <div>
         <h1>Work Experience</h1>
-        <button type="submit" onClick={this.createNewExperience}>
+        <button type="submit" onClick={this.createNewExperience} className="add">
           Add
         </button>
         {this.state.exps.map((exp) => this.renderNewExperience(exp))}

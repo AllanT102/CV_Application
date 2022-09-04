@@ -1,8 +1,10 @@
 import CVForm from './Components/CVForm/CVForm'
+import './Components/styles/app.css'
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
+      <CVForm />
       <CVForm />
     </div>
   );

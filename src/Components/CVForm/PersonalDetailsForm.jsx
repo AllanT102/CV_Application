@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/section.css';
 
 class PersonalDetailsForm extends Component {
     constructor() {
@@ -15,7 +16,7 @@ class PersonalDetailsForm extends Component {
     render() {
         const {name, position, number, email, github} = this.state;
         return (
-            <div>
+            <div className="section">
                 <h1>Personal Details</h1>
                 <input type="text" defaultValue={name}/>
                 <input type="text" defaultValue={position}/>

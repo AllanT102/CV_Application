@@ -1,0 +1,17 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+.section input {
+    height: 1.8em;
+}
+
+.sec-form {
+    margin-bottom: 2%;
+}
+
+.add {
+    margin-bottom: 2%;
+}
