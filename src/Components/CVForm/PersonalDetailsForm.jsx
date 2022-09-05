@@ -2,27 +2,21 @@ import React, { Component } from 'react';
 import '../styles/section.css';
 
 class PersonalDetailsForm extends Component {
-    constructor() {
+    constructor(props) {
         super();
-        this.state = {
-            name: "Name",
-            position: "Position",
-            number: "Phone Number",
-            email: "Email",
-            github: "Github",
-        }
     }
 
+
     render() {
-        const {name, position, number, email, github} = this.state;
+        const {name, position, number, email, github} = this.props.info.personal;
         return (
             <div className="section">
                 <h1>Personal Details</h1>
-                <input type="text" defaultValue={name}/>
-                <input type="text" defaultValue={position}/>
-                <input type="text" defaultValue={number}/>
-                <input type="text" defaultValue={email}/>
-                <input type="text" defaultValue={github}/>
+                <input type="text" onChange={(event) => this.props.functions[7](event.target.value)} defaultValue={name}/>
+                <input type="text" onChange={(event) => this.props.functions[8](event.target.value)} defaultValue={position}/>
+                <input type="text" onChange={(event) => this.props.functions[9](event.target.value)} defaultValue={number}/>
+                <input type="text" onChange={(event) => this.props.functions[10](event.target.value)} defaultValue={email}/>
+                <input type="text" onChange={(event) => this.props.functions[11](event.target.value)} defaultValue={github}/>
             </div>
         )
     }
