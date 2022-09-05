@@ -9,14 +9,16 @@ class Information extends Component {
   }
 
   renderNewSection(exp) {
+    const {info, functions, title, f1, f2, f3, f4, f5 } = this.props;
+
     return (
       <div key={exp.id} className="section sec-form">
-        <input type="text" defaultValue={exp.type} onChange={(event) => this.props.functions[0](event, exp, this.props.title)}></input>
-        <input type="text" defaultValue={exp.what} onChange={(event) => this.props.functions[1](event, exp, this.props.title)}></input>
-        <input type="text" defaultValue={exp.sd} onChange={(event) => this.props.functions[2](event, exp, this.props.title)}></input>
-        <input type="text" defaultValue={exp.ed} onChange={(event) => this.props.functions[3](event, exp, this.props.title)}></input>
-        <input type="text" defaultValue={exp.desc} onChange={(event) => this.props.functions[4](event, exp, this.props.title)}></input>
-        <button type="submit" onClick={() => this.props.functions[5](exp, this.props.title)}> Delete </button>
+        <input type="text" defaultValue={f1} onChange={(event) => functions[0](event, exp, this.props.title)}></input>
+        <input type="text" defaultValue={f2} onChange={(event) => functions[1](event, exp, this.props.title)}></input>
+        <input type="text" defaultValue={f3} onChange={(event) => functions[2](event, exp, this.props.title)}></input>
+        <input type="text" defaultValue={f4} onChange={(event) => functions[3](event, exp, this.props.title)}></input>
+        <input type="text" defaultValue={f5} onChange={(event) => functions[4](event, exp, this.props.title)}></input>
+        <button type="submit" onClick={() => this.props.functions[5](exp, title)}> Delete </button>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 .form {
     border: solid black 2px;
     padding: 1%;
-    width: 40%;
+    width: 30%;
+    min-width: 300px;
 }

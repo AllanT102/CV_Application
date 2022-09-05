@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import uniqid from "uniqid";
 import CVForm from "./CVForm/CVForm";
+import CVPreview from './CVPreview/CVPreview'
+import './styles/main.css'
 
 class Main extends Component {
   constructor() {
@@ -41,7 +43,6 @@ class Main extends Component {
   }
 
   updateType(event, exp, type) {
-    console.log(this.state.exps.edu)
     if (type === "Education") {
       this.setState({
         exps: {
@@ -69,7 +70,7 @@ class Main extends Component {
     }
   }
 
-  updateWhat(exp, event, type) {
+  updateWhat(event, exp, type) {
     if (type === "Education") {
       this.setState({
         exps: {
@@ -97,7 +98,7 @@ class Main extends Component {
     }
   }
 
-  updateSd(exp, event, type) {
+  updateSd(event, exp, type) {
     if (type === "Education") {
       this.setState({
         exps: {
@@ -125,7 +126,7 @@ class Main extends Component {
     }
   }
 
-  updateEd(exp, event, type) {
+  updateEd(event, exp, type) {
     if (type === "Education") {
       this.setState({
         exps: {
@@ -153,7 +154,7 @@ class Main extends Component {
     }
   }
 
-  updateDesc(exp, event, type) {
+  updateDesc(event, exp, type) {
     if (type === "Education") {
       this.setState({
         exps: {
@@ -203,7 +204,14 @@ class Main extends Component {
     if (type === "Education") {
       this.setState({
         exps: {
-          work: this.state.exps.work, edu: this.state.exps.edu.concat(this.state.exp)
+          work: this.state.exps.work, edu: this.state.exps.edu.concat({
+            type: "Course / Program",
+            what: "University",
+            sd: "Start Date",
+            ed: "End Date",
+            desc: "Description",
+            id: uniqid(),
+          })
         },
         exp: {
           type: "",
@@ -217,7 +225,14 @@ class Main extends Component {
     } else if (type === "Work Experience") {
       this.setState({
         exps: {
-          work: this.state.exps.work.concat(this.state.exp), edu: this.state.exps.edu
+          work: this.state.exps.work.concat({
+            type: "Company",
+            what: "Position",
+            sd: "Start Date",
+            ed: "End Date",
+            desc: "Description",
+            id: uniqid(),
+          }), edu: this.state.exps.edu
         },
         exp: {
           type: "",
@@ -232,7 +247,6 @@ class Main extends Component {
   }
 
   updateName(value) {
-    console.log(this.state.personal)
     this.setState({
       personal: {
         ...this.state.personal, name: value
@@ -274,23 +288,26 @@ class Main extends Component {
 
   render() {
     return (
-      <CVForm
-        info={this.state}
-        functions={[
-          this.updateType,
-          this.updateWhat,
-          this.updateSd,
-          this.updateEd,
-          this.updateDesc,
-          this.deleteExp,
-          this.createNewSection,
-          this.updateName,
-          this.updatePosition,
-          this.updateNumber,
-          this.updateEmail,
-          this.updateGithub,
-        ]}
-      />
+      <div className="main">
+        <CVForm
+          info={this.state}
+          functions={[
+            this.updateType,
+            this.updateWhat,
+            this.updateSd,
+            this.updateEd,
+            this.updateDesc,
+            this.deleteExp,
+            this.createNewSection,
+            this.updateName,
+            this.updatePosition,
+            this.updateNumber,
+            this.updateEmail,
+            this.updateGithub,
+          ]}
+        />
+        <CVPreview info={this.state}/>
+      </div>
     );
   }
 }
