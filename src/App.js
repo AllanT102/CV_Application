@@ -1,4 +1,3 @@
-import CVForm from './Components/CVForm/CVForm'
 import './Components/styles/app.css'
 import Main from './Components/Main'
 
