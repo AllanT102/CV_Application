@@ -1,3 +1,5 @@
+Live demo: https://allant102.github.io/CV_application/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
