@@ -1,0 +1,2 @@
+@import url(https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap);*{font-family:Work Sans,sans-serif}.app{display:flex;gap:5%}.section{display:flex;flex-direction:column;gap:1.2em}.section input{height:1.8em}.add,.sec-form{margin-bottom:2%}.form{border:2px solid #000;min-width:300px;padding:1%;width:30%}.main{align-items:center;display:flex;justify-content:center;width:100vw}@media (max-width:900px){.main{flex-direction:column;gap:2.2rem}}
+/*# sourceMappingURL=main.660b5be1.css.map*/
